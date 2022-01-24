@@ -1,0 +1,27 @@
+plugins {
+    id 'idea'
+    id 'java'
+}
+
+group = 'dm'
+version = '1.0'
+
+ext {
+    // http://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    // http://hibernate.org/orm/downloads/
+    hibernateVersion = "5.4.32.Final"
+}
+dependencies {
+    implementation "org.hibernate:hibernate-core:${hibernateVersion}"
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava]*.options*.encoding = "UTF-8"
+[compileTestJava]*.options*.encoding = "UTF-8"
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    mavenCentral()
+}
